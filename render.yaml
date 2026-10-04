@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: ay-telegram-hosting
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: STORAGE_CHAT_ID
+        sync: false
+      - key: STORAGE_THREAD_ID
+        value: "178"
+      - key: ALLOWED_USER_IDS
+        value: ""
+      - key: MAX_FILE_MB
+        value: "20"
+      - key: SUPERVISOR_INTERVAL
+        value: "10"
